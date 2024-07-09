@@ -1,0 +1,85 @@
+<form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('User_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-user_id" data-field="nickname" class="form-control" type="text" value="{$row.user_id}" readonly>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Platform.name')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-platform_name" class="form-control" type="text" value="{$row.platform.name ?? ''}" readonly>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('User.mobile')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-user-mobile" class="form-control" type="text" value="{$row.user.mobile ?? ''}" readonly>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Name')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-name" class="form-control" type="text" value="{$row.name}" readonly>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Money')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-money" class="form-control" step="1"  type="number" value="{$row.money}" readonly>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Fee')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-fee" class="form-control" step="1" type="number" value="{$row.fee}" readonly>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Remark')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-remark" class="form-control" type="text" value="{$row.remark}" readonly>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Create_time')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-create_time" class="form-control"  type="text" value="{:$row.create_time?datetime($row.create_time):''}" readonly>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('State')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <div class="radio">
+                {foreach name="stateList" item="vo"}
+                <label for="row[state]-{$key}"><input id="row[state]-{$key}" name="row[state]" type="radio" value="{$key}" {in name="key" value="$row.state"}checked{/in} /> {$vo}</label>
+                {/foreach}
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Admin_remark')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-admin_remark" class="form-control" name="row[admin_remark]" type="text" value="{$row.admin_remark}">
+        </div>
+    </div>
+
+    {if $row.state == 0}
+        <div class="form-group layer-footer">
+            <label class="control-label col-xs-12 col-sm-2"></label>
+            <div class="col-xs-12 col-sm-8">
+                <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            </div>
+        </div>
+    {/if}
+</form>

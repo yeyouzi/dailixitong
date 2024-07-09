@@ -1,0 +1,5 @@
+<script id="dateTpl" type="text/html">
+    <% var tmpName = name %>
+    <% var defaultDate = date ? date : '' %>
+    <input id="c-<%=tmpName%>" data-rule="required" class="form-control datetimepicker" data-date-format="YYYY-MM-DD" data-use-current="true" name="row[<%=tmpName%>]" type="text" value="<%=defaultDate%>" placeholder="{:__('Date tips')}">
+</script>

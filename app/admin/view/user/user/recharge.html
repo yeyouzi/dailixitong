@@ -1,0 +1,45 @@
+<form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+    {:input_token()}
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Recharge type')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <select id="c-recharge_type" class="form-control selectpicker" name="row[recharge_type]">
+                <option value="0">{:__('Recharge type 0')}</option>
+                <option value="1">{:__('Recharge type 1')}</option>
+            </select>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label for="c-current_value" class="control-label col-xs-12 col-sm-2">{:__('Current value')}:</label>
+        <div class="col-xs-12 col-sm-4">
+            <input id="c-current_value"  class="form-control" type="text" value="{$row.balance}" data-balance="{$row.balance}" data-money="{$row.money}" readonly>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label for="c-amount" class="control-label col-xs-12 col-sm-2">{:__('Amount')}:</label>
+        <div class="col-xs-12 col-sm-4">
+            <input id="c-amount" data-rule="required" class="form-control" name="row[amount]" type="number" value="">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="c-remark" class="control-label col-xs-12 col-sm-2">{:__('Remark')}:</label>
+        <div class="col-xs-12 col-sm-4">
+            <input id="c-remark" class="form-control" name="row[remark]" type="text" value="">
+        </div>
+    </div>
+
+
+
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>
